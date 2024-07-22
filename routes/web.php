@@ -13,7 +13,7 @@ use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', HomeController::class)->name('home');
+Route::get('/', HomeController::class)->middleware('auth')->name('home');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
 Route::get('/login', [LoginController::class, 'index'])->name('login.index');

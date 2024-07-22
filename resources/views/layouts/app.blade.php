@@ -6,6 +6,7 @@
         @stack('styles')
         <title>Laravel - @yield('title')</title>
         @vite('resources/js/app.js')
+        @livewireStyles
     </head>
     <body class="bg-gray-100">
         <header class="p-5 bg-white border-b shadow">
@@ -34,7 +35,7 @@
                     </a>
                     <div class="flex items-center gap-2">
                         <a href="{{route('profile.index', auth()->user()->username)}}" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300">
-                            <img class="w-8 h-8 rounded-full" src="#">
+                            <img class="w-8 h-8 rounded-full" src="{{auth()->user()->imagen ? asset('/perfiles'). '/'. auth()->user()->imagen : asset('img/usuario.svg')}}">
                         </a>
                         <p class="text-sm font-bold text-gray-600 uppercase">{{auth()->user()->username}}</p>
                     </div>
@@ -54,5 +55,6 @@
         <footer class="p-5 text-sm font-bold text-center text-gray-600 uppercase bg-white border-t shadow">
             &copy; Todo los derechos reservados - Juan David Galindo
         </footer>
+        @livewireScripts
     </body>
 </html>

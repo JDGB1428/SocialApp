@@ -15,13 +15,12 @@ class ProfileController extends Controller
 
     public static function middleware(){
         return [
-            'auth',
-            new Middleware('profile.profile',except:['show'])
+            'auth'
         ];
     }
 
     public function index(User $user){
-        $posts = Post::where('user_id', $user->id)->paginate(5);
+        $posts = Post::where('user_id', $user->id)->latest()->paginate(5);
         return view('profile.profile',[
             'user' => $user,
             'posts' => $posts

@@ -6,7 +6,6 @@ use App\Models\Post;
 
 class HomeController extends Controller
 {
-
     public function __invoke()
     {
         $ids = auth()->user()->following->pluck('id')->toArray();
